@@ -21,6 +21,7 @@ export default class topbar extends React.Component {
               <div className="pic">
                 <img src="assets/profile.jpg" />
               </div>
+              <div className="name">Humaid Khan</div>
             </div>);
   }
 }

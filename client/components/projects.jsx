@@ -8,6 +8,7 @@ export default class Projects extends React.Component {
   render () {
     return (
             <div className="projects">
+            <h1>PROJECTS</h1>
             </div>);
   }
 }
