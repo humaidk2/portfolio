@@ -3,16 +3,20 @@ import React from 'react';
 export default class topbar extends React.Component {
   constructor(props) {
     super(props);
+    this.count = 0;
   }
   componentDidMount() {
     $('.app').scroll(function() {
       console.log($('.app').scrollTop() );
-      if($('.app').scrollTop() === 0) {
-        $('.topbar').css('background-color', 'steelblue');
-      } else {
-        $('.topbar').css('background-color', 'black');
+      console.log(this.count);
+      if($('.app').scrollTop() !== 0 && this.count === 0) {
+        $('.topbar').toggleClass('connect');
+        this.count = 1;
+      } else if($('.app').scrollTop() === 0 && this.count === 1){
+        $('.topbar').toggleClass('connect');
+        this.count = 0;
       }
-    })
+    }.bind(this))
   }
   
   render () {

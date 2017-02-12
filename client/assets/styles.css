@@ -18,8 +18,13 @@ body {
 .topbar {
   position: absolute;
   width: 99.5%;
-  height: 15%;
-  background: steelblue;
+  height: 13%;
+  background: transparent;
+  transition: padding 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+  box-shadow: 0px 0px 0px 0px transparent;
+  border-bottom: 1px solid transparent;
+  padding: 2em 0em;
+  z-index: 900;
 }
 .app {
   overflow-y: scroll;
@@ -58,8 +63,8 @@ body {
   text-align: center;
 }
 .pic {
-  height: 90%;
-  width: 8%;
+  height: 100%;
+  width: 7%;
   border-radius: 50%;
   display: inline-block;
   float: left;
@@ -80,4 +85,47 @@ img {
   background: transparent;
   color: pink;
   float: center;
+  padding-top: 1%;
 }
+
+.connect {
+  background-color: white;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+  padding: 1em 0em;
+}
+
+.intro {
+  width: 100%;
+  height: 70%;
+  position: relative;
+  background: midnightblue;
+}
+.introduction {
+  width: 100%;
+  height: 60%;
+  background: green;
+  position: absolute;
+  bottom: 0;
+}
+.title{
+  width: 30%;
+  height: 100%;
+  background: gold;
+  font-size: 50px;
+  float: left;
+  border-left: solid black 2px;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+
+.myself {
+  width: 69%;
+  height: 100%;
+  float: left;
+
+}
+
+
