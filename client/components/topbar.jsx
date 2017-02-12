@@ -23,7 +23,7 @@ export default class topbar extends React.Component {
     return (
             <div className="topbar">
               <div className="pic">
-                <img src="assets/profile.jpg" />
+                <img src="assets/profile.JPG" />
               </div>
               <div className="name">Humaid Khan</div>
             </div>);
