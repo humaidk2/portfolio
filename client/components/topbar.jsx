@@ -23,9 +23,23 @@ export default class topbar extends React.Component {
     return (
             <div className="topbar">
               <div className="pic">
-                <img src="assets/profile.JPG" />
+                <img id="profile" src="assets/profile.JPG" />
               </div>
               <div className="name">Humaid Khan</div>
+              <div className="links"> 
+                <div className="link">
+                  <img className="image" src='assets/github1.png' />
+                  <a href="http://github.com/humaidk2">https://github.com/humaidk2</a>
+                </div>
+                <div className="link">
+                  <img className="image"  src='assets/linkedin1.png' />
+                  <a href="http://github.com/humaidk2">https://www.linkedin.com/in/humaidk2/</a>
+                </div>
+                <div className="link">
+                  <img className="image"  src='assets/twitter3.png' />
+                  <a href="http://github.com/humaidk2">https://twitter.com/humaidk2</a>
+                </div>
+              </div>
             </div>);
   }
 }

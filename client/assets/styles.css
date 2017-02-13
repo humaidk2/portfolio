@@ -17,7 +17,7 @@ body {
 }
 .topbar {
   position: absolute;
-  width: 99.5%;
+  width: 99.4%;
   height: 13%;
   background: transparent;
   transition: padding 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
@@ -57,10 +57,11 @@ body {
   height: 40%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100%;
   font-size: 40px;
   background: maroon;
   text-align: center;
+  float: center;
+  z-index: 0;
 }
 .pic {
   height: 100%;
@@ -69,7 +70,7 @@ body {
   display: inline-block;
   float: left;
 }
-img {
+#profile {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -104,17 +105,17 @@ img {
 .introduction {
   width: 100%;
   height: 60%;
-  background: green;
+  background: transparent;
   position: absolute;
   bottom: 0;
 }
 .title{
   width: 30%;
   height: 100%;
-  background: gold;
+  background: transparent;
   font-size: 50px;
   float: left;
-  border-left: solid black 2px;
+  border-right: 1px solid #DDDDDD;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
@@ -129,3 +130,32 @@ img {
 }
 
 
+.footer {
+  display: block;
+  background: brown;
+  height: 40%;
+  width: 100%;
+  clear: both;
+  bottom: 0px;
+  z-index: 0;
+}
+.links {
+  height: 100%;
+  width: 30%;
+  float: right;
+  background-color: transparent;
+}
+.link {
+  height: 30%;
+  width: 100%;
+}
+.image {
+  height: 100%;
+  width: 10%;
+  float: left;
+}
+a{
+  margin-top: 1%;
+  float: left;
+  margin-left: 4%;
+}
