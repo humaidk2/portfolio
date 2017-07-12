@@ -53,7 +53,7 @@ export default class topbar extends React.Component {
                 <img className="name" src="assets/logo7.png" />
                 <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#resume-header')}><span>Resume</span></div>
                 <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
-                <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact Me</span></div>
+                <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
               </div>
               <div className="all-links">
                 <div className="links">

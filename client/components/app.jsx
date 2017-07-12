@@ -17,7 +17,7 @@ export default class App extends React.Component {
   clickToScroll( header, e){
     $('html, body').animate(
     {
-      scrollTop: $(header).offset().top - 135
+      scrollTop: $(header).offset().top - 100
     }, 500);
   }
   
