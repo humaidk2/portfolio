@@ -39,6 +39,7 @@
     "nodemailer": "^4.0.1",
     "path": "^0.12.7",
     "react": "^15.4.2",
+    "react-copy-to-clipboard": "^5.0.0",
     "react-dom": "^15.4.2",
     "react-scroll": "^1.5.4",
     "react-scrollable-anchor": "^0.4.2",
