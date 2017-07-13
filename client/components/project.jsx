@@ -16,9 +16,9 @@ export default class Project extends React.Component {
     return (
             <div className="project">
             	<div className="project-card" >
-	            	<div className="project-image">
+	            	<a className="project-image" href={this.props.projectLink.length ? this.props.projectLink: this.props.githubLink}>
 	            		<img src={this.state.selected} />
-	            	</div>
+	            	</a>
 	            	<div className="project-photos">
 	            		<div><img src={"assets/" + this.props.projectName + "1.png"} onMouseEnter={this.hoverImage.bind(this, 'assets/' + this.props.projectName + '1.png')}/></div>
 	            		<div><img src={"assets/" + this.props.projectName + "2.png"} onMouseEnter={this.hoverImage.bind(this, 'assets/' + this.props.projectName + '2.png')}/></div>
@@ -28,7 +28,7 @@ export default class Project extends React.Component {
 	            </div>
             	<div className="project-info">
 	            	<div className="project-title">
-	            		<div><a href="http://vrpacman.com">{this.props.projectName}</a></div>
+	            		<div><a href={this.props.projectLink.length ? this.props.projectLink: this.props.githubLink}>{this.props.projectName}</a></div>
 	            	</div>
 	            	<div className="project-details">
                   <div className="project-summary">
@@ -38,8 +38,12 @@ export default class Project extends React.Component {
                   -{this.props.point2}<br />
                   -{this.props.point3}<br />
                   </div>
+                  <div className="project-links">
+                    {this.props.projectLink.length !==0 && <a href={this.props.projectLink} className="project-link"><div>Project Link</div></a>}
+                    <a href={this.props.githubLink} className="project-link" ><div>Github Link</div></a>
+                  </div>
                   <div className="tech-stack">Tech Stack: {this.props.techStack}</div>
-	            	</div>
+	            	</div> 
             	</div>
             </div>);
   }

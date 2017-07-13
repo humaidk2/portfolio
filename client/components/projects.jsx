@@ -10,6 +10,8 @@ export default class Projects extends React.Component {
     return (
             <div className="projects">
             <Project projectName="Vrpacman"
+            projectLink="https://vrpacman.com"
+            githubLink="https://github.com/humaidk2/vrpacman"
             functionality="VRPacman is a first person virtual reality version of the classic game, Pac-man." 
             point1="Integrated BabylonJS and CannonJS to achieve smooth game physics"
             point2="Developed a ghost ai system that actively chases user"
@@ -17,6 +19,8 @@ export default class Projects extends React.Component {
             techStack="ReactJS, Webpack, BabylonJS, CannonJS, NodeJS, Express, Socket.io, MySql"
              />
             <Project projectName="Lifecraft" 
+            projectLink=""
+            githubLink="https://github.com/humaidk2/lifecraft"
             functionality="Lifecraft is an android pet simulation game that promotes exercise through mini-games." 
             point1="Redesigned existing web app to mobile app"
             point2="Developed User authentication system"
@@ -24,7 +28,9 @@ export default class Projects extends React.Component {
             techStack="ReactJS, React-Native, MySql, NodeJS, Express"
             />
             <Project projectName="Money-io"
-            functionality="Money-io is A financing app that allows users to keep track of their spendings as well as debts and loans" 
+            projectLink=""
+            githubLink="https://github.com/humaidk2/money-io"
+            functionality="Money-io is A financing app that allows users to keep track of their spendings as well as debts/loans" 
             point1="Designed mobile friendly front-end using React and Bootstrap to target users on multiple devices"
             point2="Structured various routes with Node/Express for specialization"
             point3="Saved each user’s transactions on Sqlite3 database to help users identify their owings"
