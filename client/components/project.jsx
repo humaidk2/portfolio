@@ -32,11 +32,11 @@ export default class Project extends React.Component {
 	            	</div>
 	            	<div className="project-details">
                   <div className="project-summary">
-                  {this.props.functionality}<br />
-                  My accomplishments:<br />
-                  -{this.props.point1}<br />
-                  -{this.props.point2}<br />
-                  -{this.props.point3}<br />
+                    {this.props.functionality}<br />
+                    My accomplishments:<br />
+                    -{this.props.point1}<br />
+                    -{this.props.point2}<br />
+                    -{this.props.point3}<br />
                   </div>
                   <div className="project-links">
                     {this.props.projectLink.length !==0 && <a href={this.props.projectLink} className="project-link"><div>Project Link</div></a>}
