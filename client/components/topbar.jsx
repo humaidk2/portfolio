@@ -50,19 +50,19 @@ export default class topbar extends React.Component {
                 <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
                 <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#skills-header')}><span>Skills</span></div>
                 <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
-                <img className="name" src="assets/logo7.png" />
+                <img className="name" src="assets/logo7.svg" />
                 <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#resume-header')}><span>Resume</span></div>
                 <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
                 <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
               </div>
               <div className="all-links">
                 <div className="links">
-                  <div className="icon"><a href="https://github.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.github} /></a></div>
-                  <div className="icon"><a href="https://linkedin.com/in/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.linkedin} /></a></div>
-                  <div className="icon"><a href="https://twitter.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.twitter} /></a></div>
+                  <div className="icon"><a target="_blank" href="https://github.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.github} /></a></div>
+                  <div className="icon"><a target="_blank" href="https://linkedin.com/in/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.linkedin} /></a></div>
+                  <div className="icon"><a target="_blank" href="https://twitter.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.twitter} /></a></div>
                 </div>
                 <div className="links">
-                  <div className="icon"><a href="https://500px.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.px} /></a></div>
+                  <div className="icon"><a target="_blank" href="https://500px.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.px} /></a></div>
                   <div className="icon"><CopyToClipboard text="humaidk2@gmail.com"><a ><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.copymail} /></a></CopyToClipboard></div>
                   <div className="icon"><a href="mailto:humaidk2@gmail.com"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.mail} /></a></div>
                 </div>

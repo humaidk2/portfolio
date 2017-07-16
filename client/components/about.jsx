@@ -13,7 +13,7 @@ export default class About extends React.Component {
                 <div>Humaid Khan is a curious and enthusiastic Software engineer that is keen on developing with the latest technology
                 </div>
               </div>
-              <div className="about-logo"><img src="assets/logo9.png" /></div>
+              <div className="about-logo"><img src="assets/logo9.svg" /></div>
             </div>);
   }
 }
