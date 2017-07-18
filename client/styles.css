@@ -591,6 +591,16 @@ img{
   background-color: rgb(221,221,221);
   cursor: text;
 }
+.form-input input{
+  display: flex;
+  flex: 6 1 0;
+  font-size: 2em;
+  background-color: white;
+}
+.form-input input:focus {
+  background-color: rgb(221,221,221);
+  cursor: text;
+}
 #message-box{
   flex: 6 1 0;
   display: flex;
@@ -605,7 +615,11 @@ img{
 
 .message-required{
   color: red;
-  border: 1px solid red;
+  margin-right: 7%;
+  padding: 8%;
+}
+.message-sent{
+  color: green;
   margin-right: 7%;
   padding: 8%;
 }

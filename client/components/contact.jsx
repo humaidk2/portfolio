@@ -7,34 +7,73 @@ export default class Contact extends React.Component {
       name: '',
       email: '',
       message: '',
-      nameRequired: '',
-      emailRequired: '',
-      messageRequired: ''
-
+      nameRequired: 'contact-required',
+      emailRequired: 'contact-required',
+      messageRequired: 'contact-required',
+      sent: false
     };
     this.changeHandle = this.changeHandle.bind(this);
     this.submitHandle = this.submitHandle.bind(this);
+    this.enterHandle = this.enterHandle.bind(this);
   }
   changeHandle(e){
-    this.setState({[e.target.name]: e.target.value})
-  }
-  submitHandle(){
-    var obj = {
+    let obj = {
       nameRequired: '',
       emailRequired: '',
       messageRequired: ''
     };
-    if(this.state.name.length === 0 || this.state.email.length === 0 || this.state.message.length === 0) {
-      if(this.state.name.length === 0) {
+    obj[e.target.name] = e.target.value;
+    if(this.state.name.trim().length === 0 || this.state.email.trim().length === 0 || this.state.message.trim().length === 0 || !this.validateEmail(this.state.email) || !this.validateName(this.state.name)) {
+      if(this.state.name.trim().length === 0) {
         obj['nameRequired'] = 'contact-required';
       }
-      if(this.state.email.length === 0) {
+      if(this.state.email.trim().length === 0) {
         obj['emailRequired'] = 'contact-required';
       }
-      if(this.state.message.length === 0) {
+      if(this.state.message.trim().length === 0) {
         obj['messageRequired'] = 'contact-required';
       }
-    } else {
+      if(!this.validateEmail(this.state.email)) {
+        obj['emailRequired'] = 'contact-required';
+      } 
+      if(!this.validateName(this.state.name)) {
+        obj['nameRequired'] = 'contact-required';
+      }
+    }
+    this.setState(obj);
+  } 
+  validateEmail(email) {
+    const re =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+  validateName(name) {
+    const re = /^[a-z ,.'-]+$/i
+    return re.test(name);
+  }
+  submitHandle(){
+    let obj = {
+      nameRequired: '',
+      emailRequired: '',
+      messageRequired: ''
+    };
+    if(this.state.name.trim().length === 0 || this.state.email.trim().length === 0 || this.state.message.trim().length === 0 || !this.validateEmail(this.state.email) || !this.validateName(this.state.name)) {
+      if(this.state.name.trim().length === 0) {
+        obj['nameRequired'] = 'contact-required';
+      }
+      if(this.state.email.trim().length === 0) {
+        obj['emailRequired'] = 'contact-required';
+      }
+      if(this.state.message.trim().length === 0) {
+        obj['messageRequired'] = 'contact-required';
+      }
+      if(!this.validateEmail(this.state.email)) {
+        obj['emailRequired'] = 'contact-required';
+      } 
+      if(!this.validateName(this.state.name)) {
+        obj['nameRequired'] = 'contact-required';
+      }
+      this.setState(obj);
+    }else {
       fetch('/contact/', {
         method: 'POST',
         headers: {
@@ -47,10 +86,21 @@ export default class Contact extends React.Component {
           message: this.state.message
 
         })
+      }).then((response)=>{
+        console.log(response.status);
+        if(response.status === 200) {
+          obj['sent'] = true;
+          this.setState(obj);
+          setTimeout(function(){this.setState({'sent': false})}.bind(this), 3000);
+        }
       });
     }
-    this.setState(obj);
 
+  }
+  enterHandle(e) {
+    if(e.key === 'Enter') {
+      this.submitHandle();
+    }
   }
   render () {
     return (
@@ -59,15 +109,22 @@ export default class Contact extends React.Component {
                 <div className="form-input">
                     <div className="contact-name">
                       <div className="contact-title">Name:</div>
-                      <textarea name="name" className={this.state.nameRequired} onChange={this.changeHandle}/>
+                      <input name="name" type="text" onKeyUp={this.enterHandle} onKeyPress={this.changeHandle} className={this.state.nameRequired}/>
                     </div>
                     <div className="contact-email">
                       <div className="contact-title">Email:</div>
-                      <textarea name="email" className={this.state.emailRequired} onChange={this.changeHandle}/>
+                      <input name="email" type="text" onKeyUp={this.enterHandle} onKeyPress={this.changeHandle} className={this.state.emailRequired}/>
                     </div>
                     <div className="contact-message">
-                      <div className="message-box-title"><span>Message:</span> <span className="message-required">{this.state.name.length !== 0 && this.state.email.length !== 0 && this.state.message.length !== 0 ? '' : ('Please add a ' + (!this.state.name.length ? 'name ': '') + (!this.state.email.length ? 'email ': '') + (!this.state.message.length ? 'message ': ''))} </span></div>
-                      <textarea id="message-box" className={this.state.messageRequired} name="message" onChange={this.changeHandle}/>
+                      <div className="message-box-title"><span>Message:</span> <span className="message-required">
+                      {this.state.name.length  && this.state.email.length  && this.state.message.length  && !this.state.nameRequired.length && !this.state.emailRequired.length && !this.state.messageRequired.length ? '' : 
+                      ('Please add a ' + (this.state.nameRequired.length  ? 'valid name ': '') + 
+                        (this.state.emailRequired.length ? 'valid email ': '') + 
+                        (this.state.messageRequired.length ? 'valid message ': ''))
+                      } </span>
+                      <span className="message-sent">
+                        {this.state.sent ? 'Sent' : ''}</span></div>
+                      <textarea id="message-box" className={this.state.messageRequired} name="message" onKeyPress={this.changeHandle} />
                     </div>
                 </div>
                 <div className="form-submit"><div onClick={this.submitHandle}>Submit</div></div>
