@@ -1,7 +1,6 @@
 import React from 'react';
 import SkillsBox from './skillsbox';
 import LegendBox from './legendbox';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 export default class Skills extends React.Component {
   constructor(props) {
