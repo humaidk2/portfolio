@@ -7,7 +7,7 @@ export default class SkillsBox extends React.Component {
   
   render () {
     return (<div className="skills-box">
-              <div className="skills-circle"><div>{this.props.icon}</div></div>
+              <div className={"skills-circle skill-" + this.props.skillType}><div>{this.props.icon}</div></div>
               <div className="skills-name">{this.props.skill}</div>
             </div>);
   }

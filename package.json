@@ -44,6 +44,7 @@
     "react-dom": "^15.4.2",
     "react-scroll": "^1.5.4",
     "react-scrollable-anchor": "^0.4.2",
+    "react-transition-group": "^1.2.0",
     "typeit": "^4.4.0",
     "webpack": "^1.14.0"
   }

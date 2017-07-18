@@ -46,14 +46,13 @@ export default class topbar extends React.Component {
             <div className="topbar">
               <div className="pic"><img className="picture" src="assets/profile.jpg" /></div>
               <div className="nameContainer">
-                <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'.home')}><span>Home</span></div>
-                <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
-                <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#skills-header')}><span>Skills</span></div>
-                <div className="topbar-headers topbar-left" onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'.home')}><span>Home</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#resume-skills-header')}><span>Resume/Skills</span></div>
                 <img className="name" src="assets/logo7.svg" />
-                <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#resume-header')}><span>Resume</span></div>
-                <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
-                <div className="topbar-headers topbar-right" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
+                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
               </div>
               <div className="all-links">
                 <div className="links">
