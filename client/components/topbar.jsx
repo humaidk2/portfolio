@@ -1,5 +1,6 @@
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import 'typeit';
 
 export default class topbar extends React.Component {
   constructor(props) {
@@ -28,14 +29,17 @@ export default class topbar extends React.Component {
   }
 
   hover(e) {
-    var link = e.target.src.slice(29);
-    link = link.split('-');
-    var obj = {};
-    console.log(link);
-    if(link[1] === 'black.png') {
-      obj[link[0]] = 'assets/' + link[0] + '-grey.png';
-    } else if(link[1] === 'grey.png') {
-      obj[link[0]] = 'assets/' + link[0] + '-black.png';
+    let link = e.target.src;
+    let obj = {};
+    for(let iconName in this.state) {
+      let res = link.split(iconName + '-');
+      if(res.length !== 1) {
+        if(res[1] === 'black.png') {
+          obj[iconName] = 'assets/' + iconName + '-grey.png';
+        } else if(res[1] === 'grey.png') {
+          obj[iconName] = 'assets/' + iconName + '-black.png';
+        }
+      }
     }
     this.setState(obj);
   }
