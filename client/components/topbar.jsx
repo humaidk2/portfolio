@@ -33,9 +33,9 @@ export default class topbar extends React.Component {
     link = link.split('-');
     var obj = {};
     if(link[1] === 'black.png') {
-      obj[link[0]] = 'assets/' + link[0] + '-grey.png';
+      obj[link[0]] = './assets/' + link[0] + '-grey.png';
     } else if(link[1] === 'grey.png') {
-      obj[link[0]] = 'assets/' + link[0] + '-black.png';
+      obj[link[0]] = './assets/' + link[0] + '-black.png';
     }
     this.setState(obj);
   }

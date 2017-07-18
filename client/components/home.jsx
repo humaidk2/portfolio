@@ -6,7 +6,7 @@ export default class Home extends React.Component {
   }
   componentDidMount() {
   	$('.type-it div').typeIt({
-      speed: 100,
+      speed: 135,
       startDelete: false
     })
 	  .tiType(' a Developer')

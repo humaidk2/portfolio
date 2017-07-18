@@ -11,7 +11,7 @@
 html, body {
   height: 100vh;
   width: 100%;
-  background: maroon;
+  background: #a4c4f9;
   color: #fcfa97;
 }
 a{
@@ -156,7 +156,7 @@ img{
   background-attachment: fixed;
 }
 .type-it{
-  color: white;
+  color: #fcfa97;
   margin-top: auto;
   font-size: 5em;
   text-decoration: underline; 
@@ -209,7 +209,6 @@ img{
  /* background: url("./assets/wallpaper3.jpg") no-repeat center;
   background-size: cover;
   background-attachment: fixed;*/
-  background-color: maroon;
   text-align: center;
 }
 .project{
@@ -408,7 +407,6 @@ img{
   visibility: hidden;
   text-align: center;
   opacity: 0;
-  color: white;
   font-size: 1.35em;
   transition: visibility 0s, opacity 0.5s linear;
 }
@@ -547,7 +545,6 @@ img{
   height: 50%;
   display: flex;
   flex-direction: row;
-  background: maroon;
   padding: 5%;
 }
 .form{
@@ -564,17 +561,31 @@ img{
   flex-direction: column;
   padding: 1% 1% 0 1%;
 }
-.form-input div{
+
+.contact-name{
   display: flex;
   margin-bottom: 1%;
   flex: 1 1 0;
+}
+.contact-email{
+  display: flex;
+  margin-bottom: 1%;
+  flex: 1 1 0;
+}
+.contact-message{
+  flex: 6 1 0;
+  display: flex;
+  margin-bottom: 1%;
+}
+.contact-title{
+  flex: 1 1 0;
+  display: flex;
 }
 .form-input textarea{
   display: flex;
   flex: 6 1 0;
   font-size: 2em;
   background-color: white;
-  border-color: green;
 }
 .form-input textarea:focus {
   background-color: rgb(221,221,221);
@@ -582,7 +593,23 @@ img{
 }
 #message-box{
   flex: 6 1 0;
+  display: flex;
 }
+.message-box-title{
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0%;
+}
+
+.message-required{
+  color: red;
+  border: 1px solid red;
+  margin-right: 7%;
+  padding: 8%;
+}
+
 
 .form-submit{
   flex: 1 1 0;
@@ -598,6 +625,10 @@ img{
 .form-submit div:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #64058e;
+}
+.contact-required{
+  border: 2px solid red;
+  border-color: red;
 }
 .about{
   height: 30%;
