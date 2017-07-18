@@ -1,5 +1,4 @@
 import React from 'react';
-import 'typeit';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 export default class topbar extends React.Component {
@@ -32,10 +31,11 @@ export default class topbar extends React.Component {
     var link = e.target.src.slice(29);
     link = link.split('-');
     var obj = {};
+    console.log(link);
     if(link[1] === 'black.png') {
-      obj[link[0]] = './assets/' + link[0] + '-grey.png';
+      obj[link[0]] = 'assets/' + link[0] + '-grey.png';
     } else if(link[1] === 'grey.png') {
-      obj[link[0]] = './assets/' + link[0] + '-black.png';
+      obj[link[0]] = 'assets/' + link[0] + '-black.png';
     }
     this.setState(obj);
   }
