@@ -31,15 +31,11 @@ export default class topbar extends React.Component {
   hover(e) {
     let link = e.target.src;
     let obj = {};
-    for(let iconName in this.state) {
-      let res = link.split(iconName + '-');
-      if(res.length !== 1) {
-        if(res[1] === 'black.png') {
-          obj[iconName] = 'assets/' + iconName + '-grey.png';
-        } else if(res[1] === 'grey.png') {
-          obj[iconName] = 'assets/' + iconName + '-black.png';
-        }
-      }
+    let iconName = link.slice(link.indexOf('assets/') + 7, link.indexOf('-'));
+    if(link.indexOf('black') === -1) {
+      obj[iconName] = link.slice(0,link.indexOf('-')) + '-black.png';
+    } else if(link.indexOf('grey') === -1){
+      obj[iconName] = link.slice(0,link.indexOf('-')) + '-grey.png';
     }
     this.setState(obj);
   }
