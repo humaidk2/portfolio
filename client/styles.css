@@ -134,10 +134,11 @@ a{
 .icon  a img{
   flex: 1 1 0;
 }
-#github:hover {
-  background: url("./assets/github-grey.png");
-  background-color: pink;
+
+.topbar-link-grey {
+  background-color: #acb3bf;
 }
+
 
 img{
   max-width: 100%;

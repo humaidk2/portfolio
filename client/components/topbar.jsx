@@ -7,12 +7,12 @@ export default class topbar extends React.Component {
     super(props);
     this.count = 0;
     this.state = {
-      github: 'assets/github-black.png',
-      linkedin: 'assets/linkedin-black.png',
-      twitter: 'assets/twitter-black.png',
-      px: 'assets/px-black.png',
-      copymail: 'assets/copymail-black.png',
-      mail: 'assets/mail-black.png'
+      github: '',
+      linkedin: '',
+      twitter: '',
+      px: '',
+      copymail: '',
+      mail: ''
     }
     this.hover = this.hover.bind(this);
   }
@@ -32,10 +32,10 @@ export default class topbar extends React.Component {
     let link = e.target.src;
     let obj = {};
     let iconName = link.slice(link.indexOf('assets/') + 7, link.indexOf('-'));
-    if(link.indexOf('black') === -1) {
-      obj[iconName] = link.slice(0,link.indexOf('-')) + '-black.png';
-    } else if(link.indexOf('grey') === -1){
-      obj[iconName] = link.slice(0,link.indexOf('-')) + '-grey.png';
+    if(this.state[iconName].length === 0) {
+      obj[iconName] = 'topbar-link-grey';
+    } else {
+      obj[iconName] = '';
     }
     this.setState(obj);
   }
@@ -56,14 +56,14 @@ export default class topbar extends React.Component {
               </div>
               <div className="all-links">
                 <div className="links">
-                  <div className="icon"><a target="_blank" href="https://github.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.github} /></a></div>
-                  <div className="icon"><a target="_blank" href="https://linkedin.com/in/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.linkedin} /></a></div>
-                  <div className="icon"><a target="_blank" href="https://twitter.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.twitter} /></a></div>
+                  <div className="icon"><a target="_blank" className={this.state.github} href="https://github.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/github-black.png' /></a></div>
+                  <div className="icon"><a target="_blank" className={this.state.linkedin} href="https://linkedin.com/in/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/linkedin-black.png' /></a></div>
+                  <div className="icon"><a target="_blank" className={this.state.twitter} href="https://twitter.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/twitter-black.png' /></a></div>
                 </div>
                 <div className="links">
-                  <div className="icon"><a target="_blank" href="https://500px.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.px} /></a></div>
-                  <div className="icon"><CopyToClipboard text="humaidk2@gmail.com"><a ><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.copymail} /></a></CopyToClipboard></div>
-                  <div className="icon"><a href="mailto:humaidk2@gmail.com"><img onMouseOver={this.hover} onMouseLeave={this.hover} src={this.state.mail} /></a></div>
+                  <div className="icon"><a target="_blank" className={this.state.px} href="https://500px.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/px-black.png' /></a></div>
+                  <div className="icon"><CopyToClipboard text="humaidk2@gmail.com"><a className={this.state.copymail} ><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/copymail-black.png' /></a></CopyToClipboard></div>
+                  <div className="icon"><a className={this.state.mail} href="mailto:humaidk2@gmail.com"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/mail-black.png' /></a></div>
                 </div>
               </div>  
             </div>);
