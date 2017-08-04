@@ -16,7 +16,6 @@ export default class About extends React.Component {
                 <br />Email:<a target="_blank" href="mailto:humaidk2@gmail.com">humaidk2@gmail.com</a>
                 <br />Linkedin:<a target="_blank" href="linkedin.com/in/humaidk2">linkedin.com/in/humaidk2</a>
                 <br />Github:<a target="_blank" href="github.com/humaidk2">github.com/humaidk2</a>
-
                 </div>
               </div>
               <div className="about-logo"><img src="assets/logo9.svg" /></div>

@@ -7,14 +7,8 @@ export default class topbar extends React.Component {
     super(props);
     this.count = 0;
     this.state = {
-      github: '',
-      linkedin: '',
-      twitter: '',
-      px: '',
-      copymail: '',
-      mail: ''
+      scrolled: 'home'
     }
-    this.hover = this.hover.bind(this);
   }
   componentDidMount() {
     document.addEventListener('scroll', function (event) {
@@ -25,47 +19,48 @@ export default class topbar extends React.Component {
         $('.topbar').toggleClass('connect');
         this.count = 0;
       }
+      if($('body').scrollTop() < 725 && this.state.scrolled !== 'home') {
+        this.setState({scrolled: 'home'});
+      }
+      if($('body').scrollTop() > 725 && this.state.scrolled !== 'projects') {
+        this.setState({scrolled: 'projects'});
+      }
+      if($('body').scrollTop() > 1967 && this.state.scrolled !== 'skills') {
+        this.setState({scrolled: 'skills'});
+      }
+      if($('body').scrollTop() > 2685 && this.state.scrolled !== 'photos') {
+        this.setState({scrolled: 'photos'});
+      }
+      if($('body').scrollTop() > 3384 && this.state.scrolled !== 'contact') {
+        this.setState({scrolled: 'contact'});
+      }
+      if($('body').scrollTop() > 3444 && this.state.scrolled !== 'about') {
+        this.setState({scrolled: 'about'});
+      }
     }.bind(this), true);
-  }
-
-  hover(e) {
-    let link = e.target.src;
-    let obj = {};
-    let iconName = link.slice(link.indexOf('assets/') + 7, link.indexOf('-'));
-    if(this.state[iconName].length === 0) {
-      obj[iconName] = 'topbar-link-grey';
-    } else {
-      obj[iconName] = '';
-    }
-    this.setState(obj);
   }
 
   
   render () {
     return (
             <div className="topbar">
-              <div className="pic"><img className="picture" src="assets/profile.jpg" /></div>
               <div className="nameContainer">
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'.home')}><span>Home</span></div>
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#resume-skills-header')}><span>Resume/Skills</span></div>
-                <img className="name" src="assets/logo7.svg" />
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
-                <div className="topbar-headers" onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
+                <div className="name"><img src="assets/logo7.png" /></div>
+                <div className={this.state.scrolled === 'home' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'.home')}><span>Home</span></div>
+                <div className={this.state.scrolled === 'projects' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
+                <div className={this.state.scrolled === 'skills' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#resume-skills-header')}><span>Resume/Skills</span></div>
+                <div className={this.state.scrolled === 'photos' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
+                <div className={this.state.scrolled === 'contact' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
+                <div className={this.state.scrolled === 'about' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
               </div>
               <div className="all-links">
-                <div className="links">
-                  <div className="icon"><a target="_blank" className={this.state.github} href="https://github.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/github-black.png' /></a></div>
-                  <div className="icon"><a target="_blank" className={this.state.linkedin} href="https://linkedin.com/in/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/linkedin-black.png' /></a></div>
-                  <div className="icon"><a target="_blank" className={this.state.twitter} href="https://twitter.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/twitter-black.png' /></a></div>
-                </div>
-                <div className="links">
-                  <div className="icon"><a target="_blank" className={this.state.px} href="https://500px.com/humaidk2"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/px-black.png' /></a></div>
-                  <div className="icon"><CopyToClipboard text="humaidk2@gmail.com"><a className={this.state.copymail} ><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/copymail-black.png' /></a></CopyToClipboard></div>
-                  <div className="icon"><a className={this.state.mail} href="mailto:humaidk2@gmail.com"><img onMouseOver={this.hover} onMouseLeave={this.hover} src='assets/mail-black.png' /></a></div>
-                </div>
-              </div>  
+                <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://github.com/humaidk2"><i className="fa fa-stack-1x fa-github fa-inverse"></i></a></div>
+                <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://linkedin.com/in/humaidk2"><i className="fa fa-stack-1x fa-linkedin fa-inverse"></i></a></div>
+                <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://twitter.com/humaidk2"><i className="fa fa-stack-1x fa-twitter fa-inverse"></i></a></div>
+                <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://500px.com/humaidk2"><i className="fa fa-stack-1x fa-500px fa-inverse"></i></a></div>
+                <div className="icon"><CopyToClipboard text="humaidk2@gmail.com"><a className="icon-link fa-stack fa-lg" ><i className="fa fa-stack-1x fa-clipboard fa-inverse"></i></a></CopyToClipboard></div>
+                <div className="icon"><a className="icon-link fa-stack fa-lg" href="mailto:humaidk2@gmail.com"><i className="fa fa-stack-1x fa-envelope fa-inverse"></i></a></div>
+              </div>
             </div>);
   }
 }

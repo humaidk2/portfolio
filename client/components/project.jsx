@@ -27,9 +27,11 @@ export default class Project extends React.Component {
 	            	</div>
 	            </div>
             	<div className="project-info">
-	            	<div className="project-title">
-	            		<div><a target="_blank" href={this.props.projectLink.length ? this.props.projectLink: this.props.githubLink}>{this.props.projectName}</a></div>
-	            	</div>
+	            	<a target="_blank" className="project-title-link" href={this.props.projectLink.length ? this.props.projectLink: this.props.githubLink}>
+                  <div className="project-title">
+  	            		<div>{this.props.projectName}</div>
+  	            	</div>
+                </a>
 	            	<div className="project-details">
                   <div className="project-summary">
                     {this.props.functionality}<br />
@@ -39,8 +41,8 @@ export default class Project extends React.Component {
                     -{this.props.point3}<br />
                   </div>
                   <div className="project-links">
-                    {this.props.projectLink.length !==0 && <a target="_blank" href={this.props.projectLink} className="project-link"><div>Project Link</div></a>}
-                    <a target="_blank" href={this.props.githubLink} className="project-link" ><div>Github Link</div></a>
+                    {this.props.projectLink.length !==0 && <a target="_blank" href={this.props.projectLink} className="project-link btn btn-primary btn-lg">Project Link</a>}
+                    <a target="_blank" href={this.props.githubLink} className="project-link btn btn-primary btn-lg" >Github Link</a>
                   </div>
                   <div className="tech-stack">Tech Stack: {this.props.techStack}</div>
 	            	</div> 

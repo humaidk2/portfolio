@@ -53,7 +53,7 @@ export default class Skills extends React.Component {
                   ))}
               </div>
               <div className="legend">
-                <a className="resume-button" href= "assets/resume.pdf" target="_blank">Open Resume in new tab</a>
+                <a className="resume-button btn btn-primary btn-xl" href= "assets/resume.pdf" target="_blank">Open Resume in new tab</a>
                 <div className="skills-legend">
                   <LegendBox symbol="front-end" selected={this.state.selected.indexOf("front-end") !== -1 ? "skills-legend-box-selected" : ""} clickHandle={this.legendClick.bind(this, 'front-end')} />
                   <LegendBox symbol="back-end" selected={this.state.selected.indexOf("back-end") !== -1 ? "skills-legend-box-selected" : ""} clickHandle={this.legendClick.bind(this, 'back-end')} />
@@ -62,7 +62,7 @@ export default class Skills extends React.Component {
                   <LegendBox symbol="libraries" selected={this.state.selected.indexOf("libraries") !== -1 ? "skills-legend-box-selected" : ""} clickHandle={this.legendClick.bind(this, 'libraries')} />
                   <LegendBox symbol="others" selected={this.state.selected.indexOf("others") !== -1 ? "skills-legend-box-selected" : ""} clickHandle={this.legendClick.bind(this, 'others')} />
                 </div>
-                <a className="resume-button" href= "assets/resume.pdf" download>Download Resume</a>
+                <a className="resume-button btn btn-primary btn-lg" href= "assets/resume.pdf" download>Download Resume</a>
               </div>
             </div>);
   }

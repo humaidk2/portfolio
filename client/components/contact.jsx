@@ -100,6 +100,8 @@ export default class Contact extends React.Component {
   enterHandle(e) {
     if(e.key === 'Enter') {
       this.submitHandle();
+    } else{
+      this.changeHandle(e);
     }
   }
   render () {
@@ -118,8 +120,8 @@ export default class Contact extends React.Component {
                     <div className="contact-message">
                       <div className="message-box-title"><span>Message:</span> <span className="message-required">
                       {this.state.name.length  && this.state.email.length  && this.state.message.length  && !this.state.nameRequired.length && !this.state.emailRequired.length && !this.state.messageRequired.length ? '' : 
-                      ('Please add a ' + (this.state.nameRequired.length  ? 'valid name ': '') + 
-                        (this.state.emailRequired.length ? 'valid email ': '') + 
+                      ('Please add a ' + (this.state.nameRequired.length  ? 'valid name, ': '') + 
+                        (this.state.emailRequired.length ? 'valid email, ': '') + 
                         (this.state.messageRequired.length ? 'valid message ': ''))
                       } </span>
                       <span className="message-sent">
@@ -127,7 +129,7 @@ export default class Contact extends React.Component {
                       <textarea id="message-box" className={this.state.messageRequired} name="message" onKeyPress={this.changeHandle} />
                     </div>
                 </div>
-                <div className="form-submit"><div onClick={this.submitHandle}>Submit</div></div>
+                <div className="form-submit"><div className="btn btn-xl" onClick={this.submitHandle}>Submit</div></div>
               </div>
             </div>);
   }
