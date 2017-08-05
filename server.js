@@ -3,10 +3,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const app = express();
+//const http = require('https');
+//const fs = require('fs');
 const helmet = require('helmet');
 const nodemailer = require('nodemailer');
-const port = 3000;
+const port = 3000;  //443
+/*const sslPath = 'etc/letsencrypt/live/humaidkhan.com/';
 
+const options = {
+  key: fs.readFileSync(sslPath + 'privkey.pem'),
+  cert: fs.readFileSync(sslPath + 'fullchain.pem')
+};
+*/
 app.use(helmet());
 app.use(express.static(path.join(__dirname, '/client')));
 app.use(bodyParser.urlencoded({'extended':false}));
@@ -31,6 +39,8 @@ app.post('/contact',(req, res) => {
 
   res.end();
 })
+//const server = http.createServer(options, app);
+//server.listen(port);
 app.listen(port);
 const transporter = nodemailer.createTransport({
   service: 'gmail',

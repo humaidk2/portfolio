@@ -18,7 +18,7 @@ export default class About extends React.Component {
                 <br />Github:<a target="_blank" href="github.com/humaidk2">github.com/humaidk2</a>
                 </div>
               </div>
-              <div className="about-logo"><img src="assets/logo9.svg" /></div>
+              <div className="about-logo"><img src="assets/logo9.png" /></div>
             </div>);
   }
 }

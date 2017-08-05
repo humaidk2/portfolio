@@ -657,7 +657,7 @@ img{
 .about{
   height: 30%;
   display: flex;
-  color: black;
+  background-color: black;
 }
 
 .about-photo{
@@ -698,7 +698,6 @@ img{
 .about-logo img{
   flex: 1 1 0;
 }
-
 input{
   border: 1px solid black;
 }

@@ -33,7 +33,6 @@ export default class App extends React.Component {
               <Photos />
               <div id="contact-header" className="headers"><div>Contact Me</div></div>
               <Contact />
-              <div id="about-header" className="headers"><div>About Me</div></div>
               <About />
             </div>);
   }

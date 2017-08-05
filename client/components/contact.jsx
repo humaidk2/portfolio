@@ -22,32 +22,37 @@ export default class Contact extends React.Component {
       emailRequired: '',
       messageRequired: ''
     };
+    let newState = {};
+    for(let i in this.state) {
+      newState[i] = this.state[i];
+    }
+    newState[e.target.name] = e.target.value
     obj[e.target.name] = e.target.value;
-    if(this.state.name.trim().length === 0 || this.state.email.trim().length === 0 || this.state.message.trim().length === 0 || !this.validateEmail(this.state.email) || !this.validateName(this.state.name)) {
-      if(this.state.name.trim().length === 0) {
+    if(newState.name.trim().length === 0 || newState.email.trim().length === 0 || newState.message.trim().length === 0 || !this.validateEmail(newState.email) || !this.validateName(newState.name)) {
+      if(newState.name.trim().length === 0) {
         obj['nameRequired'] = 'contact-required';
       }
-      if(this.state.email.trim().length === 0) {
+      if(newState.email.trim().length === 0) {
         obj['emailRequired'] = 'contact-required';
       }
-      if(this.state.message.trim().length === 0) {
+      if(newState.message.trim().length === 0) {
         obj['messageRequired'] = 'contact-required';
       }
-      if(!this.validateEmail(this.state.email)) {
+      if(!this.validateEmail(newState.email)) {
         obj['emailRequired'] = 'contact-required';
       } 
-      if(!this.validateName(this.state.name)) {
+      if(!this.validateName(newState.name)) {
         obj['nameRequired'] = 'contact-required';
       }
     }
     this.setState(obj);
   } 
   validateEmail(email) {
-    const re =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
   }
   validateName(name) {
-    const re = /^[a-z ,.'-]+$/i
+    const re = /^[a-z ,.'-]+$/i;
     return re.test(name);
   }
   submitHandle(){
@@ -111,11 +116,11 @@ export default class Contact extends React.Component {
                 <div className="form-input">
                     <div className="contact-name">
                       <div className="contact-title">Name:</div>
-                      <input name="name" type="text" onKeyUp={this.enterHandle} onKeyPress={this.changeHandle} className={this.state.nameRequired}/>
+                      <input name="name" type="text" onKeyUp={this.changeHandle} className={this.state.nameRequired}/>
                     </div>
                     <div className="contact-email">
                       <div className="contact-title">Email:</div>
-                      <input name="email" type="text" onKeyUp={this.enterHandle} onKeyPress={this.changeHandle} className={this.state.emailRequired}/>
+                      <input name="email" type="text" onKeyUp={this.changeHandle}  className={this.state.emailRequired}/>
                     </div>
                     <div className="contact-message">
                       <div className="message-box-title"><span>Message:</span> <span className="message-required">
@@ -126,7 +131,7 @@ export default class Contact extends React.Component {
                       } </span>
                       <span className="message-sent">
                         {this.state.sent ? 'Sent' : ''}</span></div>
-                      <textarea id="message-box" className={this.state.messageRequired} name="message" onKeyPress={this.changeHandle} />
+                      <textarea id="message-box" className={this.state.messageRequired} name="message" onKeyUp={this.changeHandle} />
                     </div>
                 </div>
                 <div className="form-submit"><div className="btn btn-xl" onClick={this.submitHandle}>Submit</div></div>

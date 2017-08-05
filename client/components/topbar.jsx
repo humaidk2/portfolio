@@ -19,23 +19,21 @@ export default class topbar extends React.Component {
         $('.topbar').toggleClass('connect');
         this.count = 0;
       }
-      if($('body').scrollTop() < 725 && this.state.scrolled !== 'home') {
+      const offsetHeader = 50;
+      if($('body').scrollTop() > $('.home').offset().top - offsetHeader && this.state.scrolled !== 'home') {
         this.setState({scrolled: 'home'});
       }
-      if($('body').scrollTop() > 725 && this.state.scrolled !== 'projects') {
+      if($('body').scrollTop() > $('#project-header').offset().top - offsetHeader && this.state.scrolled !== 'projects') {
         this.setState({scrolled: 'projects'});
       }
-      if($('body').scrollTop() > 1967 && this.state.scrolled !== 'skills') {
+      if($('body').scrollTop() > $('#resume-skills-header').offset().top - offsetHeader && this.state.scrolled !== 'skills') {
         this.setState({scrolled: 'skills'});
       }
-      if($('body').scrollTop() > 2685 && this.state.scrolled !== 'photos') {
+      if($('body').scrollTop() > $('#photography-header').offset().top - offsetHeader && this.state.scrolled !== 'photos') {
         this.setState({scrolled: 'photos'});
       }
-      if($('body').scrollTop() > 3384 && this.state.scrolled !== 'contact') {
+      if($('body').scrollTop() > $('#contact-header').offset().top - offsetHeader && this.state.scrolled !== 'contact') {
         this.setState({scrolled: 'contact'});
-      }
-      if($('body').scrollTop() > 3444 && this.state.scrolled !== 'about') {
-        this.setState({scrolled: 'about'});
       }
     }.bind(this), true);
   }
@@ -48,12 +46,12 @@ export default class topbar extends React.Component {
                 <div className="name"><img src="assets/logo7.png" /></div>
                 <div className={this.state.scrolled === 'home' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'.home')}><span>Home</span></div>
                 <div className={this.state.scrolled === 'projects' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#project-header')}><span>Projects</span></div>
-                <div className={this.state.scrolled === 'skills' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#resume-skills-header')}><span>Resume/Skills</span></div>
+                <div className={this.state.scrolled === 'skills' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#resume-skills-header')}><span>Skills</span></div>
                 <div className={this.state.scrolled === 'photos' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#photography-header')}><span>Photography</span></div>
                 <div className={this.state.scrolled === 'contact' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#contact-header')}><span>Contact</span></div>
-                <div className={this.state.scrolled === 'about' ? "btn btn-xl topbar-new-headers": "topbar-headers"} onClick={this.props.clickToScroll.bind(this,'#about-header')}><span>About</span></div>
               </div>
               <div className="all-links">
+                <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://angel.co/humaidk2"><i className="fa fa-stack-1x fa-angellist fa-inverse"></i></a></div>
                 <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://github.com/humaidk2"><i className="fa fa-stack-1x fa-github fa-inverse"></i></a></div>
                 <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://linkedin.com/in/humaidk2"><i className="fa fa-stack-1x fa-linkedin fa-inverse"></i></a></div>
                 <div className="icon"><a target="_blank" className="icon-link fa-stack fa-lg" href="https://twitter.com/humaidk2"><i className="fa fa-stack-1x fa-twitter fa-inverse"></i></a></div>
