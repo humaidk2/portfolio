@@ -735,7 +735,6 @@ textarea{
   height: 25%; 
   width: 100%;
   z-index: 10;
-  margin-top: 1.5%;
   background-position: 0px 0px;
   background-repeat: repeat-x;
   -webkit-animation: animar_edificios 120s linear infinite;
