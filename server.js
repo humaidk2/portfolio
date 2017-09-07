@@ -8,7 +8,7 @@ const app = express();
 const helmet = require('helmet');
 const nodemailer = require('nodemailer');
 const port = 3000;  //443
-/*const sslPath = 'etc/letsencrypt/live/humaidkhan.com/';
+/*const sslPath = '/etc/letsencrypt/live/humaidkhan.com/';
 
 const options = {
   key: fs.readFileSync(sslPath + 'privkey.pem'),
