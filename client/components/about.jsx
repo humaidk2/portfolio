@@ -1,4 +1,5 @@
 import React from 'react';
+import SunCalc from 'suncalc';
 
 export default class About extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class About extends React.Component {
               <div id="cielo" ></div>
               <div id="edificios"></div>
               <div id="luna"></div>
-              <div className="about-photo"><img src="assets/profile2.jpg" /></div>
+              <div className="about-photo"><div><img src="assets/logo9.png" /></div></div>
               <div className="about-bio">
                 <div><span>Hi!</span><br />My name is Humaid khan,  I am an enthusiastic Full Stack Developer that loves developing with the latest trends 
                 <br />If you have any projects that I can help work on or any new technology you found interesting

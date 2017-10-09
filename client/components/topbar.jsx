@@ -12,27 +12,27 @@ export default class topbar extends React.Component {
   }
   componentDidMount() {
     document.addEventListener('scroll', function (event) {
-      if($('body').scrollTop() !== 0 && this.count === 0) {
+      if($('html, body').scrollTop() !== 0 && this.count === 0) {
         $('.topbar').toggleClass('connect');
         this.count = 1;
-      } else if($('body').scrollTop() === 0 && this.count === 1){
+      } else if($('html, body').scrollTop() === 0 && this.count === 1){
         $('.topbar').toggleClass('connect');
         this.count = 0;
       }
       const offsetHeader = 50;
-      if($('body').scrollTop() > $('.home').offset().top - offsetHeader && this.state.scrolled !== 'home') {
+      if($('html, body').scrollTop() > $('.home').offset().top - offsetHeader && this.state.scrolled !== 'home') {
         this.setState({scrolled: 'home'});
       }
-      if($('body').scrollTop() > $('#project-header').offset().top - offsetHeader && this.state.scrolled !== 'projects') {
+      if($('html, body').scrollTop() > $('#project-header').offset().top - offsetHeader && this.state.scrolled !== 'projects') {
         this.setState({scrolled: 'projects'});
       }
-      if($('body').scrollTop() > $('#resume-skills-header').offset().top - offsetHeader && this.state.scrolled !== 'skills') {
+      if($('html, body').scrollTop() > $('#resume-skills-header').offset().top - offsetHeader && this.state.scrolled !== 'skills') {
         this.setState({scrolled: 'skills'});
       }
-      if($('body').scrollTop() > $('#photography-header').offset().top - offsetHeader && this.state.scrolled !== 'photos') {
+      if($('html, body').scrollTop() > $('#photography-header').offset().top - offsetHeader && this.state.scrolled !== 'photos') {
         this.setState({scrolled: 'photos'});
       }
-      if($('body').scrollTop() > $('#contact-header').offset().top - offsetHeader && this.state.scrolled !== 'contact') {
+      if($('html, body').scrollTop() > $('#contact-header').offset().top - offsetHeader && this.state.scrolled !== 'contact') {
         this.setState({scrolled: 'contact'});
       }
     }.bind(this), true);
