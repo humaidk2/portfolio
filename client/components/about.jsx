@@ -1,5 +1,4 @@
 import React from 'react';
-import SunCalc from 'suncalc';
 
 export default class About extends React.Component {
   constructor(props) {
